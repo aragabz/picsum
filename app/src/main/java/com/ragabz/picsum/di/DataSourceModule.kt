@@ -1,11 +1,11 @@
-package com.ragabz.githubapp.di
+package com.ragabz.picsum.di
 
-import com.ragabz.githubapp.data.local.dao.GithubRepoDao
-import com.ragabz.githubapp.data.local.datasource.GithubRepoLocalDataSource
-import com.ragabz.githubapp.data.local.datasource.GithubRepoLocalDataSourceImpl
-import com.ragabz.githubapp.data.remote.api.GithubRepoApi
-import com.ragabz.githubapp.data.remote.datasource.GithubRepoRemoteDataSource
-import com.ragabz.githubapp.data.remote.datasource.GithubRepoRemoteDataSourceImpl
+import com.ragabz.picsum.data.local.dao.PictureDao
+import com.ragabz.picsum.data.local.datasource.PictureLocalDataSource
+import com.ragabz.picsum.data.local.datasource.PictureLocalDataSourceImpl
+import com.ragabz.picsum.data.remote.api.PictureApi
+import com.ragabz.picsum.data.remote.datasource.PictureRemoteDataSource
+import com.ragabz.picsum.data.remote.datasource.PictureRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,12 +18,12 @@ object DataSourceModule {
 
     @Provides
     @Singleton
-    fun provideGithubRepoRemoteDataSource(githubRepoApi: GithubRepoApi): GithubRepoRemoteDataSource =
-        GithubRepoRemoteDataSourceImpl(githubRepoApi)
+    fun provideGithubRepoRemoteDataSource(pictureApi: PictureApi): PictureRemoteDataSource =
+        PictureRemoteDataSourceImpl(pictureApi)
 
 
     @Provides
     @Singleton
-    fun provideGithubRepoLocalDataSource(githubRepoDao: GithubRepoDao): GithubRepoLocalDataSource =
-        GithubRepoLocalDataSourceImpl(githubRepoDao)
+    fun provideGithubRepoLocalDataSource(pictureDao: PictureDao): PictureLocalDataSource =
+        PictureLocalDataSourceImpl(pictureDao)
 }
