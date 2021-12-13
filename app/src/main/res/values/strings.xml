@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PicSum</string>
+    <string name="error">error</string>
+    <string name="internet_error_message">internet_error_message</string>
+    <string name="time_out_message">time out message</string>
+    <string name="internet_connection_state_connected">connected</string>
+    <string name="internet_connection_state_not_connected">not connected</string>
 </resources>
