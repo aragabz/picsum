@@ -1,10 +1,10 @@
-package com.ragabz.githubapp.extensions
+package com.ragabz.picsum.extensions
 
-import com.ragabz.githubapp.base.Result
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 import timber.log.Timber
+import com.ragabz.picsum.base.Result
 
 fun <T> Response<T>.toFlow() = flow {
     emit(

@@ -1,4 +1,4 @@
-package com.ragabz.githubapp.extensions
+package com.ragabz.picsum.extensions
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
