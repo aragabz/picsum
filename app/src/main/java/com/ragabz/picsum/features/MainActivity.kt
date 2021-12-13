@@ -1,7 +1,8 @@
-package com.ragabz.picsum
+package com.ragabz.picsum.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ragabz.picsum.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

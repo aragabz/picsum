@@ -2,7 +2,7 @@ package com.ragabz.picsum.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
-import com.ragabz.githubapp.BuildConfig
+import com.ragabz.picsum.BuildConfig
 import timber.log.Timber
 
 class TimberInitializer : Initializer<Unit> {
