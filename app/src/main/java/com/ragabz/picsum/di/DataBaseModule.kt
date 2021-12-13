@@ -1,8 +1,8 @@
-package com.ragabz.githubapp.di
+package com.ragabz.picsum.di
 
 import android.content.Context
-import com.ragabz.githubapp.data.local.dao.GithubRepoDao
-import com.ragabz.githubapp.data.local.database.GithubDataBase
+import com.ragabz.picsum.data.local.dao.PictureDao
+import com.ragabz.picsum.data.local.database.PicsumDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,12 +15,12 @@ import javax.inject.Singleton
 object DataBaseModule {
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext appContext: Context): GithubDataBase {
-        return GithubDataBase.getDataBase(appContext)
+    fun provideDatabase(@ApplicationContext appContext: Context): PicsumDataBase {
+        return PicsumDataBase.getDataBase(appContext)
     }
 
     @Provides
-    fun provideUsersDao(database: GithubDataBase): GithubRepoDao {
-        return database.repoDao()
+    fun providePictureDao(database: PicsumDataBase): PictureDao {
+        return database.pictureDao()
     }
 }

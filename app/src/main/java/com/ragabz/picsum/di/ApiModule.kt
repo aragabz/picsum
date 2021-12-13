@@ -1,7 +1,7 @@
-package com.ragabz.githubapp.di
+package com.ragabz.picsum.di
 
 
-import com.ragabz.githubapp.data.remote.api.GithubRepoApi
+import com.ragabz.picsum.data.remote.api.PictureApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +15,6 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideGithubRepoApi(retrofit: Retrofit): GithubRepoApi =
-        retrofit.create(GithubRepoApi::class.java)
+    fun providePictureApi(retrofit: Retrofit): PictureApi =
+        retrofit.create(PictureApi::class.java)
 }

@@ -1,7 +1,7 @@
-package com.ragabz.githubapp.di
+package com.ragabz.picsum.di
 
 import android.content.Context
-import com.ragabz.githubapp.R
+import com.ragabz.picsum.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
