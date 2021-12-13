@@ -1,4 +1,4 @@
-package com.ragabz.githubapp.di
+package com.ragabz.picsum.di
 
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
