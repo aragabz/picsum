@@ -1,0 +1,87 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
+    id("com.github.ben-manes.versions")
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.ragabz.picsum"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    // bundles
+    implementation(libs.bundles.core)
+    implementation(libs.bundles.kotlin)
+    implementation(libs.bundles.navigation)
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.network)
+    implementation(libs.coroutinesAndroid)
+    implementation(libs.bundles.test)
+    // room database
+    implementation(libs.bundles.room)
+    kapt(libs.roomCompiler)
+
+    // glide
+    implementation(libs.glide)
+    kapt(libs.glideCompiler)
+    // hilt
+    implementation(libs.hiltAndroid)
+    kapt(libs.hiltCompiler)
+    // timber
+    implementation(libs.timber)
+
+
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.vectordrawable)
+    implementation(libs.legacySupport)
+    implementation(libs.cardview)
+    implementation(libs.recyclerview)
+    implementation(libs.constraintlayout)
+    implementation(libs.preference)
+    implementation(libs.materialDialogsCore)
+    implementation(libs.startupRuntime)
+    implementation(libs.activity)
+    implementation(libs.fragmentKtx)
+    debugImplementation(libs.chuckerDebug)
+    implementation(libs.circularImageView)
+    implementation(libs.threetenabp)
+    implementation(libs.paging)
+    implementation(libs.gson)
+    implementation ("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
+    implementation("androidx.multidex:multidex:2.0.1")
+}
