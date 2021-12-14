@@ -1,4 +1,4 @@
-package com.ragabz.githubapp.di
+package com.ragabz.picsum.di
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerCollector
@@ -7,8 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.moczul.ok2curl.CurlInterceptor
-import com.ragabz.githubapp.BuildConfig
-import com.ragabz.githubapp.data.remote.interceptors.AuthenticationInterceptor
+import com.ragabz.picsum.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,15 +54,13 @@ object NetworkModule {
         loggingInterceptor: HttpLoggingInterceptor,
         chuckerInterceptor: ChuckerInterceptor,
         curlInterceptor: CurlInterceptor,
-        authenticationInterceptor: AuthenticationInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
             if (BuildConfig.DEBUG) {
                 addInterceptor(curlInterceptor)
                 addInterceptor(chuckerInterceptor)
-//                addInterceptor(loggingInterceptor)
+                addInterceptor(loggingInterceptor)
             }
-            addInterceptor(authenticationInterceptor)
             connectTimeout(TIME_OUT, TimeUnit.MINUTES)
             readTimeout(TIME_OUT, TimeUnit.MINUTES)
             writeTimeout(TIME_OUT, TimeUnit.MINUTES)
@@ -90,7 +87,6 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.base_url)
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(okHttpClient)
             .build()
     }

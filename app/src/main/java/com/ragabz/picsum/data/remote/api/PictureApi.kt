@@ -17,7 +17,7 @@ interface PictureApi {
      * @return [Response<PictureList>]
      */
     @GET("list")
-    fun fetchPictures(
+    suspend fun fetchPictures(
         @Query("page") page: Int,
         @Query("limit") limit: Int = LIMIT
     ): Response<PictureList>

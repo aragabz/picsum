@@ -24,7 +24,7 @@ fun View.show() {
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
  */
-fun View.createSnackBar(snackbarText: String, timeLength: Int): Snackbar {
+fun View.createSnackBar(snackbarText: String, timeLength: Int = Snackbar.LENGTH_LONG): Snackbar {
     return Snackbar.make(
         this,
         snackbarText,

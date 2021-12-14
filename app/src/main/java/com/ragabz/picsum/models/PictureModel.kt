@@ -29,4 +29,13 @@ data class PictureModel(
     @SerializedName("width")
     @ColumnInfo
     var width: Int
-)
+) {
+    constructor() : this(
+        author = "",
+        downloadUrl = "",
+        height = 0,
+        id = "",
+        url = "",
+        width = 0
+    )
+}
