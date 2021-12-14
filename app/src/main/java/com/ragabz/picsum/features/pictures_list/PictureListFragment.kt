@@ -19,6 +19,7 @@ import com.ragabz.picsum.models.PictureModel
 import com.ragabz.picsum.utils.ConnectionLiveData
 import com.ragabz.picsum.utils.EndlessRecyclerViewScrollListener
 import com.ragabz.picsum.utils.ItemClickSupport
+import com.ragabz.picsum.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -43,7 +44,12 @@ class PictureListFragment : ViewBindingFragment<FragmentPictureListBinding>(
         initRecyclerView()
         observeNetworkConnection()
         subscribeToViewModel()
-        viewModel.getPictures(true)
+        isInternetGone = Utils.isOnline(requireContext()).not()
+        when (Utils.isOnline(requireContext())) {
+            true -> viewModel.getPictures()
+            false -> viewModel.getCachedPictures()
+        }
+
     }
 
     private fun initRecyclerView() {
@@ -54,8 +60,8 @@ class PictureListFragment : ViewBindingFragment<FragmentPictureListBinding>(
         binding.recyclerViewPictures.addOnScrollListener(object :
             EndlessRecyclerViewScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                if (isInternetGone) return
-                viewModel.getPictures(true)
+                if (Utils.isOnline(requireContext()).not()) return
+                viewModel.getPictures()
             }
         })
 
